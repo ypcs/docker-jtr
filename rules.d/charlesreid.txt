@@ -1,0 +1,108 @@
+# Source: <https://charlesreid1.com/wiki/John_the_Ripper/Rules>
+
+[List.Rules:CommonPins]
+# low hanging fruit
+-[c:] \p[c:] Az"0123" <+
+-[c:] \p[c:] Az"1234" <+
+-[c:] \p[c:] Az"2345" <+
+-[c:] \p[c:] Az"3456" <+
+-[c:] \p[c:] Az"4567" <+
+-[c:] \p[c:] Az"5678" <+
+-[c:] \p[c:] Az"6789" <+
+-[c:] \p[c:] Az"7890" <+
+-[c:] \p[c:] Az"1004" <+
+-[c:] \p[c:] Az"4321" <+
+-[c:] \p[c:] Az"6969" <+
+-[c:] \p[c:] Az"1122" <+
+-[c:] \p[c:] Az"1313" <+
+-[c:] \p[c:] Az"0007" <+
+-[c:] \p[c:] Az"0070" <+
+-[c:] \p[c:] Az"1984" <+
+-[c:] \p[c:] Az"2580" <+
+-[c:] \p[c:] Az"2468" <+
+-[c:] \p[c:] Az"1357" <+
+# xxxx
+-[c:] \p[c:] Az"0000" <+
+-[c:] \p[c:] Az"0000"s01 <+
+-[c:] \p[c:] Az"0000"s02 <+
+-[c:] \p[c:] Az"0000"s03 <+
+-[c:] \p[c:] Az"0000"s04 <+
+-[c:] \p[c:] Az"0000"s05 <+
+-[c:] \p[c:] Az"0000"s06 <+
+-[c:] \p[c:] Az"0000"s07 <+
+-[c:] \p[c:] Az"0000"s08 <+
+-[c:] \p[c:] Az"0000"s09 <+
+
+[List.Rules:OneNumberPins]
+# 000x
+-[c:] \p[c:] Az"0001" <+
+-[c:] \p[c:] Az"0001"s12 <+
+-[c:] \p[c:] Az"0001"s13 <+
+-[c:] \p[c:] Az"0001"s14 <+
+-[c:] \p[c:] Az"0001"s15 <+
+-[c:] \p[c:] Az"0001"s16 <+
+-[c:] \p[c:] Az"0001"s17 <+
+-[c:] \p[c:] Az"0001"s18 <+
+-[c:] \p[c:] Az"0001"s19 <+
+# x000
+-[c:] \p[c:] Az"1000" <+
+-[c:] \p[c:] Az"1000"s12 <+
+-[c:] \p[c:] Az"1000"s13 <+
+-[c:] \p[c:] Az"1000"s14 <+
+-[c:] \p[c:] Az"1000"s15 <+
+-[c:] \p[c:] Az"1000"s16 <+
+-[c:] \p[c:] Az"1000"s17 <+
+-[c:] \p[c:] Az"1000"s18 <+
+-[c:] \p[c:] Az"1000"s19 <+
+
+[List.Rules:TwoNumberPins]
+# x001
+-[c:] \p[c:] Az"1001" <+
+-[c:] \p[c:] Az"2001" <+
+-[c:] \p[c:] Az"2001"s23 <+
+-[c:] \p[c:] Az"2001"s24 <+
+-[c:] \p[c:] Az"2001"s25 <+
+-[c:] \p[c:] Az"2001"s26 <+
+-[c:] \p[c:] Az"2001"s27 <+
+-[c:] \p[c:] Az"2001"s28 <+
+-[c:] \p[c:] Az"2001"s29 <+
+# xyxy where x and y are within 1 of each other
+-[c:] \p[c:] Az"XYXY"sX1sY2 <+
+-[c:] \p[c:] Az"XYXY"sX2sY3 <+
+-[c:] \p[c:] Az"XYXY"sX3sY4 <+
+-[c:] \p[c:] Az"XYXY"sX4sY5 <+
+-[c:] \p[c:] Az"XYXY"sX5sY6 <+
+-[c:] \p[c:] Az"XYXY"sX6sY7 <+
+-[c:] \p[c:] Az"XYXY"sX7sY8 <+
+-[c:] \p[c:] Az"XYXY"sX8sY9 <+
+# yxyx
+-[c:] \p[c:] Az"XYXY"sY1sX2 <+
+-[c:] \p[c:] Az"XYXY"sY2sX3 <+
+-[c:] \p[c:] Az"XYXY"sY3sX4 <+
+-[c:] \p[c:] Az"XYXY"sY4sX5 <+
+-[c:] \p[c:] Az"XYXY"sY5sX6 <+
+-[c:] \p[c:] Az"XYXY"sY6sX7 <+
+-[c:] \p[c:] Az"XYXY"sY7sX8 <+
+-[c:] \p[c:] Az"XYXY"sY8sX9 <+
+
+[List.Rules:DatePins]
+# MMDD
+-[c:] \p[c:] Az"0[1-9][0-2][0-9]" <+
+-[c:] \p[c:] Az"0[1-9]3[0-1]" <+
+-[c:] \p[c:] Az"1[0-2][0-2][0-9]" <+
+-[c:] \p[c:] Az"1[0-2]3[0-1]" <+
+
+[List.Rules:YearPins]
+# 19xx
+-[c:] \p[c:] Az"19[0-9][0-9]" <+
+# 20xx
+-[c:] \p[c:] Az"20[0-1][0-9]" <+
+-[c:] \p[c:] Az"20[2-9][0-9]" <+
+
+# all pins
+[List.Rules:AllPins]
+.include [List.Rules:CommonPins]
+.include [List.Rules:OneNumberPins]
+.include [List.Rules:TwoNumberPins]
+.include [List.Rules:DatePins]
+.include [List.Rules:YearPins]

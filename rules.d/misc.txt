@@ -1,0 +1,7 @@
+# append years 1980-89
+[List.Rules:CMRNumbers]
+Az"198[0-9]"
+cAz"198[0-9]"
+CAz"198[0-9]"
+A0"198[0-9]"
+Az"198[0-9]"
