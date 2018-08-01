@@ -61,7 +61,7 @@ RUN \
     mkdir -p "${WORDLIST_DIR}/fi-swe" && \
     cd /usr/src && \
     curl -fSL "https://github.com/jvesiluoma/wordlists/raw/master/fin-swe-passwdlist.7z" -o "fin-swe-passwdlist.7z" && \
-    7z x "fin-swe-passwdlist.7z" && \
+    p7zip x "fin-swe-passwdlist.7z" && \
     rm -f *.7z && \
     ls
 
