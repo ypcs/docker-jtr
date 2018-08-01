@@ -26,14 +26,14 @@ RUN \
     cd /usr/src && \
     curl -fSL "http://www.openwall.com/john/j/john-${JOHN_VERSION}.tar.xz" -o "john-${JOHN_VERSION}.tar.xz" && \
     tar xJf "john-${JOHN_VERSION}.tar.xz" && \
+    rm -f "john-${JOHN_VERSION}.tar.xz" && \
     cd john-* && \
     cd src && \
     ./configure && \
     make && \
     cd .. &&  \
     cp -R run /usr/local/john && \
-    cd ../.. && \
-    rm -rf john-* && \
+    rm -rf /usr/src/john-* && \
     apt-get --assume-yes remove \
         build-essential \
         libssl-dev \
@@ -62,6 +62,7 @@ RUN \
     cd /usr/src && \
     curl -fSL "https://github.com/jvesiluoma/wordlists/raw/master/fin-swe-passwdlist.7z" -o "fin-swe-passwdlist.7z" && \
     p7zip -d "fin-swe-passwdlist.7z" && \
+    mv fin-swe-passwdlist.txt /wordlist/fi-swd/ && \
     rm -f *.7z && \
     ls
 
