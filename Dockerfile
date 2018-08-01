@@ -9,20 +9,26 @@ ENV WORDLIST_DIR /wordlists
 RUN mkdir -p "${WORDLIST_DIR}"
 
 RUN \
-    /usr/local/sbin/docker-upgrade && \
+    /usr/lib/docker-helpers/apt-setup && \
+    /usr/lib/docker-helpers/apt-upgrade && \
     apt-get --assume-yes install \
-        build-essential \
-        libssl-dev \
         libssl1.0.0 \
         libkrb5-3 \
         libgmp10 \
-        libgmp-dev \
-        zlib1g-dev \
-        libnss3-dev \
-        libkrb5-dev \
         libgomp1 \
         curl \
         p7zip && \
+    /usr/lib/docker-helpers/apt-cleanup
+
+RUN \
+    /usr/lib/docker-helpers/apt-setup && \
+    apt-get --assume-yes install \
+        build-essential \
+        libgmp-dev \
+        libkrb5-dev \
+        libnss3-dev \
+        libssl-dev \
+        zlib1g-dev && \
     cd /usr/src && \
     curl -fSL "http://www.openwall.com/john/j/john-${JOHN_VERSION}.tar.xz" -o "john-${JOHN_VERSION}.tar.xz" && \
     tar xJf "john-${JOHN_VERSION}.tar.xz" && \
@@ -47,7 +53,7 @@ RUN \
         libnss3-dev && \
     echo '#!/bin/sh\nset -e\n/usr/local/john/john $@' > /usr/bin/john && \
     chmod +x /usr/bin/john && \
-    /usr/local/sbin/docker-cleanup
+    /usr/lib/docker-helpers/apt-cleanup
 
 RUN \
     mkdir -p "${WORDLIST_DIR}" && \
