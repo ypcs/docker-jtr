@@ -21,7 +21,8 @@ RUN \
         libnss3-dev \
         libkrb5-dev \
         libgomp1 \
-        curl && \
+        curl \
+        p7zip && \
     cd /usr/src && \
     curl -fSL "http://www.openwall.com/john/j/john-${JOHN_VERSION}.tar.xz" -o "john-${JOHN_VERSION}.tar.xz" && \
     tar xJf "john-${JOHN_VERSION}.tar.xz" && \
@@ -43,8 +44,7 @@ RUN \
         gcc-4.9 \
         dpkg-dev \
         libicu52 \
-        libnss3-dev \
-        p7zip && \
+        libnss3-dev && \
     echo '#!/bin/sh\nset -e\n/usr/local/john/john $@' > /usr/bin/john && \
     chmod +x /usr/bin/john && \
     /usr/local/sbin/docker-cleanup
@@ -61,7 +61,7 @@ RUN \
     mkdir -p "${WORDLIST_DIR}/fi-swe" && \
     cd /usr/src && \
     curl -fSL "https://github.com/jvesiluoma/wordlists/raw/master/fin-swe-passwdlist.7z" -o "fin-swe-passwdlist.7z" && \
-    p7zip x "fin-swe-passwdlist.7z" && \
+    p7zip --decompress "fin-swe-passwdlist.7z" && \
     rm -f *.7z && \
     ls
 
