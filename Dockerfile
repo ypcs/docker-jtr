@@ -43,7 +43,8 @@ RUN \
         gcc-4.9 \
         dpkg-dev \
         libicu52 \
-        libnss3-dev && \
+        libnss3-dev \
+        p7zip && \
     echo '#!/bin/sh\nset -e\n/usr/local/john/john $@' > /usr/bin/john && \
     chmod +x /usr/bin/john && \
     /usr/local/sbin/docker-cleanup
@@ -55,6 +56,14 @@ RUN \
     tar xzf kotus-sanalista-v1.tar.gz && \
     sed -ne 's,.*<s>\(.*\)</s>.*,\1,p' kotus-sanalista_v1/kotus-sanalista_v1.xml > "${WORDLIST_DIR}/finnish.txt" && \
     rm -rf kotus-sanalista*
+
+RUN \
+    mkdir -p "${WORDLIST_DIR}/fi-swe" && \
+    cd /usr/src && \
+    curl -fSL "https://github.com/jvesiluoma/wordlists/raw/master/fin-swe-passwdlist.7z" -o "fin-swe-passwdlist.7z" && \
+    7z x "fin-swe-passwdlist.7z" && \
+    rm -f *.7z && \
+    ls
 
 RUN \
     mkdir -p "${WORDLIST_DIR}/passwords" && \
