@@ -12,8 +12,8 @@ RUN \
     /usr/local/sbin/docker-upgrade && \
     apt-get --assume-yes install \
         build-essential \
+        libssl1.1 \
         libssl-dev \
-        libssl1.0.0 \
         libkrb5-3 \
         libgmp10 \
         libgmp-dev \
