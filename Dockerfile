@@ -1,4 +1,4 @@
-FROM ypcs/debian:jessie
+FROM ypcs/debian:buster
 
 ENV JOHN_VERSION 1.8.0-jumbo-1
 ENV JOHN_SHA256 XX
