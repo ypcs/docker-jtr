@@ -44,7 +44,6 @@ RUN \
         gcc \
         gcc-4.9 \
         dpkg-dev \
-        libicu52 \
         libnss3-dev && \
     echo '#!/bin/sh\nset -e\n/usr/local/john/john $@' > /usr/bin/john && \
     chmod +x /usr/bin/john && \
