@@ -29,9 +29,11 @@ RUN \
     cd /usr/src && \
     git clone https://github.com/magnumripper/JohnTheRipper john && \
     cd john/src && \
+    git describe && \
     ./configure && \
     make && \
     cd .. &&  \
+    rm -rf .git && \
     cp -R run /usr/local/john && \
     cd ../.. && \
     rm -rf john-* && \
