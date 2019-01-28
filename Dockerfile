@@ -21,6 +21,7 @@ RUN \
         libnss3-dev \
         libkrb5-dev \
         libgomp1 \
+        pkg-config \
         curl && \
     cd /usr/src && \
     curl -fSL "http://www.openwall.com/john/j/john-${JOHN_VERSION}.tar.xz" -o "john-${JOHN_VERSION}.tar.xz" && \
