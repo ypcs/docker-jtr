@@ -25,6 +25,8 @@ RUN \
         pkg-config \
         git \
         nano \
+        cewl \
+        cupp3 \
         curl && \
     cd /usr/src && \
     git clone https://github.com/magnumripper/JohnTheRipper john && \
