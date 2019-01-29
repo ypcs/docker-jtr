@@ -26,6 +26,7 @@ RUN \
         git \
         nano \
         cewl \
+        crunch \
         cupp3 \
         curl && \
     cd /usr/src && \
