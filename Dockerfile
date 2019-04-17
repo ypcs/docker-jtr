@@ -30,7 +30,7 @@ RUN \
         cupp3 \
         curl && \
     cd /usr/src && \
-    git clone https://github.com/magnumripper/JohnTheRipper john && \
+    git clone --depth=1 -b bleeding-jumbo --single-branch https://github.com/magnumripper/JohnTheRipper john && \
     cd john/src && \
     git describe && \
     ./configure && \
