@@ -1,4 +1,6 @@
-FROM ypcs/debian:buster
+FROM ypcs/debian:bullseye
+
+ARG APT_PROXY
 
 ENV JOHN_VERSION 1.9.0-jumbo-1
 ENV JOHN_SHA256 XX
