@@ -1,4 +1,4 @@
-FROM ypcs/debian:bullseye
+FROM docker.io/ypcs/debian:bookworm
 
 ARG APT_PROXY
 
